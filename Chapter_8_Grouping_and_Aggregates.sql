@@ -1,4 +1,4 @@
--- Chapter 3 
+-- Chapter 8 
 -- Grouping and Aggregate
 
 -- Exercise 8-1. Construct a query that counts the number of rows in the payment table.

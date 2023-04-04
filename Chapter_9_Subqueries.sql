@@ -12,9 +12,24 @@ WHERE film_id IN
      WHERE c.NAME = 'Action')
 ORDER BY title;
 
+-- Exercise 9-2
+-- Rework the query from Exercise 9-1 using a correlated subquery against the category 
+-- and film_category tables to achieve the same results.
+
+SELECT f.title
+FROM film f
+WHERE EXISTS (
+    SELECT 1
+    FROM film_category fc
+    INNER JOIN category c ON fc.category_id = c.category_id
+    WHERE fc.film_id = f.film_id
+      AND c.name = 'Action'
+)
+ORDER BY f.title;
+
+
 -- Exercise 9-3
--- Join the following query to a subquery against the film_actor table to show the level
--- of each actor:
+-- Join the following query to a subquery against the film_actor table to show the level of each actor:
 -- SELECT 'Hollywood Star' level, 30 min_roles, 99999 max_roles
 -- UNION ALL
 -- SELECT 'Prolific Actor' level, 20 min_roles, 29 max_roles
